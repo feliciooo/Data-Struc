@@ -1,0 +1,29 @@
+# DRAFT ONLY,, still studying
+
+
+import queue
+
+fruiTy = queue.LifoQueue()
+noFru = int(input("Enter no. of fruits to eat: "))
+for i in range(1, noFru+1):
+    print("Enter 1 - 4. \nChoose a fruit(s) to catch [A for Apple, O for Orange, M for Mango, G for Guava]: ")
+    desFru = input().upper()
+    if desFru == "A":
+        fruiTy.put("Apple")
+    elif desFru == "O":
+        fruiTy.put("Orange")
+    elif desFru == "M":
+        fruiTy.put("Mango")
+    elif desFru == "G":
+        fruiTy.put("Guava")
+    else:
+        print("Invalid input. Please type according to the guide.")
+        i -= 1
+
+print("Your basket has now: " + str(list(fruiTy.queue)))
+while not fruiTy.empty():
+    print("Press E to eat a fruit.")
+    eat_fruit = input().lower()
+    if eat_fruit == "e":
+        fruiTy.get()
+        print("Fruit(s) in the basket")
